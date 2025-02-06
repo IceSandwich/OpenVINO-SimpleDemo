@@ -1,3 +1,9 @@
+"""
+Author: gh Corgice @IceSandwich
+Date: Febuary 2025
+License: MIT
+"""
+
 #%%
 from diffusers import StableDiffusionPipeline
 #import torch
