@@ -1,3 +1,9 @@
+"""
+Author: gh Corgice @IceSandwich
+Date: Febuary 2025
+License: MIT
+"""
+
 #%%
 import nncf  # noqa: F811
 from torch.utils.data import Dataset, DataLoader
