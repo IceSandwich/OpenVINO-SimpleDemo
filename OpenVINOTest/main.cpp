@@ -1,3 +1,12 @@
+/*****************************************************************//**
+ * \file    main.cpp
+ * \brief   
+ * 
+ * \author  gh Corgice @IceSandwich
+ * \date    February 2025
+ * \license MIT
+ *********************************************************************/
+
 #include <iostream>
 #include <chrono>
 #include <iterator>
@@ -12,11 +21,11 @@ int main() {
 	std::copy(devices.begin(), devices.end(), std::ostream_iterator<std::string>(std::cout, ", "));
 	std::cout << std::endl;
 	
-	//Õâ¸öonnxÔ¼27ms
+	//è¿™ä¸ªonnxçº¦27ms
 	//ov::CompiledModel compiledModel = core.compile_model("Models/YoloPoseV8/yolov8n-pose.onnx", "AUTO:GPU,-CPU", ov::log::level(ov::log::Level::DEBUG));
-	//Õâ¸öInt8Ô¼27ms£¬ÓÉ±àÒëµÄFP16Á¿»¯µÃµ½
+	//è¿™ä¸ªInt8çº¦27msï¼Œç”±ç¼–è¯‘çš„FP16é‡åŒ–å¾—åˆ°
 	ov::CompiledModel compiledModel = core.compile_model("Models/YoloPoseV8/Int8/yolov8n-pose.xml", "AUTO:GPU,-CPU", ov::log::level(ov::log::Level::DEBUG));
-	//Õâ¸öInt8_2·´¶ø±äÂýÁË£¬ÓÉonnxÖ±½ÓÁ¿»¯µÄÄ£ÐÍ£¬Ô¼53ms
+	//è¿™ä¸ªInt8_2åè€Œå˜æ…¢äº†ï¼Œç”±onnxç›´æŽ¥é‡åŒ–çš„æ¨¡åž‹ï¼Œçº¦53ms
 	//ov::CompiledModel compiledModel = core.compile_model("Models/YoloPoseV8/Int8_2/yolov8n-pose.xml", "AUTO:GPU,-CPU", ov::log::level(ov::log::Level::DEBUG));
 
 	ov::InferRequest inferRequest = compiledModel.create_infer_request();
